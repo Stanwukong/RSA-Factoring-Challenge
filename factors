@@ -23,16 +23,14 @@ def factorize(num):
 if len(argv) != 2:
     exit()
 
+try:
+    with open(argv[1]) as file:
+        line = file.readline()
 
-def reader(filename):
-    """
-    Reads file and performs the program in it
-    """
-    with open(filename, encoding="utf-8") as file:
-        for i in file.readlines():
-            n = int(i)
-            result = factorize(n)
-    return
+        while line != "":
+            product = int(line.split('\n')[0])
+            factorize(product)
+            line = file.readline()
 
-if __name__ == "__main__":
-    reader(argv[1])
+except:
+    pass
