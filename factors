@@ -1,0 +1,38 @@
+#!/usr/bin/python3
+"""Factorize as many numbers as possible into
+   a product of two smaller numbers"""
+
+import math
+from sys import argv
+
+
+def factorize(num):
+
+    """gets the factors of num"""
+    i = 2
+
+    if num < 2:
+        return
+
+    while num % i:
+        i += 1
+
+    print("{}={}*{}".format(num, i, num / i))
+
+
+if len(argv) != 2:
+    exit()
+
+
+def reader(filename):
+    """
+    Reads file and performs the program in it
+    """
+    with open(filename, encoding="utf-8") as file:
+        for i in file.readlines():
+            n = int(i)
+            result = factorize(n)
+    return
+
+if __name__ == "__main__":
+    reader(argv[1])
